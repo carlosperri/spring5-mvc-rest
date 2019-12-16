@@ -43,13 +43,13 @@ public class CustomerControllerTest {
 
         //given
         CustomerDTO customer1 = new CustomerDTO();
-        customer1.setFirstName("Michale");
-        customer1.setLastName("Weston");
+        customer1.setFirstname("Michale");
+        customer1.setLastname("Weston");
         customer1.setCustomerUrl("/api/v1/customer/1");
 
         CustomerDTO customer2 = new CustomerDTO();
-        customer2.setFirstName("Sam");
-        customer2.setLastName("Axe");
+        customer2.setFirstname("Sam");
+        customer2.setLastname("Axe");
         customer2.setCustomerUrl("/api/v1/customer/2");
 
         when(customerService.getAllCustomers()).thenReturn(Arrays.asList(customer1, customer2));
@@ -65,8 +65,8 @@ public class CustomerControllerTest {
 
         //given
         CustomerDTO customer1 = new CustomerDTO();
-        customer1.setFirstName("Michale");
-        customer1.setLastName("Weston");
+        customer1.setFirstname("Michale");
+        customer1.setLastname("Weston");
         customer1.setCustomerUrl("/api/v1/customer/1");
 
         when(customerService.getCustomerById(anyLong())).thenReturn(customer1);
@@ -75,6 +75,6 @@ public class CustomerControllerTest {
         mockMvc.perform(get("/api/v1/customers/1")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.firstName", equalTo("Michale")));
+                .andExpect(jsonPath("$.firstname", equalTo("Michale")));
     }
 }
