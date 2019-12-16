@@ -38,7 +38,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         return customerRepository.findById(id)
                 .map(customerMapper::customerToCustomerDTO)
-                .orElseThrow(RuntimeException::new); //todo implement better exception handling
+                .orElseThrow(ResourceNotFoundException::new);
     }
 
     @Override
@@ -81,7 +81,7 @@ public class CustomerServiceImpl implements CustomerService {
             returnDTO.setCustomerUrl("/api/v1/customers/" + id);
 
             return returnDTO;
-        }).orElseThrow(RuntimeException::new); //todo implement better exception handling;
+        }).orElseThrow(ResourceNotFoundException::new);
     }
 
     @Override
